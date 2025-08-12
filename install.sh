@@ -82,13 +82,12 @@ OPTIONS:
   -r, --remove
   -u, --uninstall         Uninstall/remove themes or link for libadwaita
 
-  --tweaks                Specify versions for tweaks [solid|float|round|blur|noborder|square]
+  --tweaks                Specify versions for tweaks [solid|float|round|blur|noborder]
                           solid:    no transparency version
                           float:    floating panel
                           round:    rounded windows
                           blur:     blur version for 'Blur-Me'
                           noborder: windows and menu with no border
-                          square:   square windows button
 
   -h, --help              Show help
 EOF
@@ -167,13 +166,9 @@ install() {
 
   mkdir -p                                                                      "$THEME_DIR/xfwm4"
 
-  if [[ "$titlebutton" = "square" ]] ; then
-    cp -r "$SRC_DIR/xfwm4/assets-square$color/"*.png                            "$THEME_DIR/xfwm4"
-    cp -r "$SRC_DIR/xfwm4/themerc-square${ELSE_LIGHT:-}"                        "$THEME_DIR/xfwm4/themerc"
-  else
-    cp -r "$SRC_DIR/xfwm4/assets$color/"*.png                                   "$THEME_DIR/xfwm4"
-    cp -r "$SRC_DIR/xfwm4/themerc${ELSE_LIGHT:-}"                               "$THEME_DIR/xfwm4/themerc"
-  fi
+
+  cp -r "$SRC_DIR/xfwm4/assets$color/"*.png                                   "$THEME_DIR/xfwm4"
+  cp -r "$SRC_DIR/xfwm4/themerc${ELSE_LIGHT:-}"                               "$THEME_DIR/xfwm4/themerc"
 }
 
 themes=()
@@ -227,11 +222,6 @@ while [[ "$#" -gt 0 ]]; do
           noborder)
             outline="false"
             echo -e "Install windows without outline version ..."
-            shift
-            ;;
-          square)
-            titlebutton="square"
-            echo -e "Install square windows button version ..."
             shift
             ;;
           -*)
@@ -521,10 +511,6 @@ install_noborder() {
   sed -i "/\$outline:/s/true/false/" ${SRC_DIR}/_sass/_tweaks-temp.scss
 }
 
-install_square() {
-  sed -i "/\$titlebutton:/s/circular/square/" ${SRC_DIR}/_sass/_tweaks-temp.scss
-}
-
 activities_style() {
   sed -i "/\$activities:/s/default/icon/" ${SRC_DIR}/gnome-shell/sass/_tweaks-temp.scss
 }
@@ -563,7 +549,7 @@ install_theme_color() {
 }
 
 theme_tweaks() {
-  if [[ "$panel" = "float" || "$opacity" == 'solid' || "$window" == 'round' || "$accent" == 'true' || "$blur" == 'true' || "$outline" == 'false' || "$titlebutton" == 'square' || "$activities" = "icon" ]]; then
+  if [[ "$panel" = "float" || "$opacity" == 'solid' || "$window" == 'round' || "$accent" == 'true' || "$blur" == 'true' || "$outline" == 'false' || "$activities" = "icon" ]]; then
     tweaks='true'
     install_package; tweaks_temp
   fi
@@ -586,10 +572,6 @@ theme_tweaks() {
 
   if [[ "$outline" = "false" ]] ; then
     install_noborder
-  fi
-
-  if [[ "$titlebutton" = "square" ]] ; then
-    install_square
   fi
 
   if [[ "$activities" = "icon" ]] ; then
