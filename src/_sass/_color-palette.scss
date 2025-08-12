@@ -148,9 +148,7 @@ $Mika-Sun: #ff96ff;
 	$SNDL-PinkI_Primary: $Mika-Moon;
 	$SNDL-PinkI_Secondary: $Mika-Night;
 	$SNDL-PinkI_Tertiary: $Mika-Abyss;
-}
-
-@if ($variant == 'dark') {
+} @else {
 	$SNDL-Black_Primary: $Arellyan-Moon;
 	$SNDL-Black_Secondary: $Arellyan-Night;
 	$SNDL-Black_Tertiary: $Arellyan-Abyss;
