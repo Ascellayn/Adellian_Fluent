@@ -9,11 +9,12 @@ DEST_DIR=
 # For tweaks
 opacity=
 panel=
-window=
+window='-round'
+round='-round'
 blur=
 outline=
 titlebutton=
-icon='-default'
+icon='-debian'
 
 # Destination directory
 if [[ "$UID" -eq "$ROOT_UID" ]]; then
@@ -35,29 +36,6 @@ THEME_VARIANTS=('' '-purple' '-pink' '-red' '-orange' '-yellow' '-green' '-teal'
 COLOR_VARIANTS=('' '-Light' '-Dark')
 SIZE_VARIANTS=('' '-compact')
 
-if [[ "$(command -v gnome-shell)" ]]; then
-  gnome-shell --version
-  SHELL_VERSION="$(gnome-shell --version | cut -d ' ' -f 3 | cut -d . -f -1)"
-  if [[ "${SHELL_VERSION:-}" -ge "48" ]]; then
-    GS_VERSION="48-0"
-  elif [[ "${SHELL_VERSION:-}" -ge "47" ]]; then
-    GS_VERSION="47-0"
-  elif [[ "${SHELL_VERSION:-}" -ge "46" ]]; then
-    GS_VERSION="46-0"
-  elif [[ "${SHELL_VERSION:-}" -ge "44" ]]; then
-    GS_VERSION="44-0"
-  elif [[ "${SHELL_VERSION:-}" -ge "42" ]]; then
-    GS_VERSION="42-0"
-  elif [[ "${SHELL_VERSION:-}" -ge "40" ]]; then
-    GS_VERSION="40-0"
-  else
-    GS_VERSION="3-28"
-  fi
-else
-  echo "'gnome-shell' not found, using styles for last gnome-shell version available."
-  GS_VERSION="48-0"
-fi
-
 usage() {
 cat << EOF
 Usage: $0 [OPTION]...
@@ -72,10 +50,6 @@ OPTIONS:
   -c, --color VARIANT     Specify color variant(s) [standard|light|dark] (Default: All variants)s)
 
   -s, --size VARIANT      Specify size variant [standard|compact] (Default: All variants)
-
-  -i, --icon VARIANT      Specify icon variant(s) for shell panel
-                          [default|apple|simple|gnome|ubuntu|arch|manjaro|fedora|debian|void|opensuse|popos|mxlinux|zorin|endeavouros|tux|nixos]
-                          (Default: Windows)
 
   -l, --libadwaita        Install link to gtk4 config for theming libadwaita
 
@@ -104,12 +78,6 @@ install() {
   [[ "$color" == '-Dark' ]] && local ELSE_DARK="$color"
   [[ "$color" == '-Light' ]] && local ELSE_LIGHT="$color"
   [[ "$color" == '-Dark' ]] || [[ "$color" == '' ]] && local ACTIVITIES_ASSETS_SUFFIX="-Dark"
-
-  if [[ "$window" == 'round' ]]; then
-    round='-round'
-  else
-    round=$window
-  fi
 
   local THEME_DIR="$dest/$name$round$theme$color$size"
 
@@ -291,13 +259,6 @@ while [[ "$#" -gt 0 ]]; do
         esac
       done
       ;;
-    -i|--icon)
-      activities='icon'
-      shift
-      icon='-debian'
-      shift
-      done
-      ;;
     -c|--color)
       shift
       for variant in "$@"; do
@@ -388,17 +349,7 @@ function has_command() {
 install_package() {
   if [ ! "$(which sassc 2> /dev/null)" ]; then
     echo sassc needs to be installed to generate the css.
-    if has_command zypper; then
-      sudo zypper in sassc
-    elif has_command apt-get; then
-      sudo apt-get install sassc
-    elif has_command dnf; then
-      sudo dnf install sassc
-    elif has_command dnf; then
-      sudo dnf install sassc
-    elif has_command pacman; then
-      sudo pacman -S --noconfirm sassc
-    fi
+    apt-get install sassc # use debian experimental as intended or die or smth
   fi
 }
 
