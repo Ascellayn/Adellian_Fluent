@@ -30,7 +30,7 @@ fi
 
 SASSC_OPT="-M -t expanded"
 
-THEME_NAME=Fluent
+THEME_NAME=Adellian_Fluent
 THEME_VARIANTS=('' '-purple' '-pink' '-red' '-orange' '-yellow' '-green' '-teal' '-grey')
 COLOR_VARIANTS=('' '-Light' '-Dark')
 SIZE_VARIANTS=('' '-compact')
@@ -131,69 +131,9 @@ install() {
   echo "" >>                                                                    "$THEME_DIR/index.theme"
   echo "[X-GNOME-Metatheme]" >>                                                 "$THEME_DIR/index.theme"
   echo "GtkTheme=$name$round$theme$color$size" >>                               "$THEME_DIR/index.theme"
-  echo "MetacityTheme=$name$round$theme$color$size" >>                          "$THEME_DIR/index.theme"
   echo "IconTheme=$name${ELSE_DARK:-}" >>                                       "$THEME_DIR/index.theme"
   echo "CursorTheme=$name${ELSE_DARK:-}" >>                                     "$THEME_DIR/index.theme"
   echo "ButtonLayout=close,minimize,maximize:menu" >>                           "$THEME_DIR/index.theme"
-
-  mkdir -p                                                                      "$THEME_DIR/gnome-shell"
-  cp -r "$SRC_DIR/gnome-shell/pad-osd.css"                                      "$THEME_DIR/gnome-shell"
-
-  if [[ "$tweaks" == 'true' ]]; then
-    sassc $SASSC_OPT "$SRC_DIR/gnome-shell/shell-$GS_VERSION/gnome-shell$color$size.scss" "$THEME_DIR/gnome-shell/gnome-shell.css"
-  else
-    cp -r "$SRC_DIR/gnome-shell/shell-$GS_VERSION/gnome-shell$color$size.css"   "$THEME_DIR/gnome-shell/gnome-shell.css"
-  fi
-
-  cp -r "${SRC_DIR}/gnome-shell/common-assets"                                  "$THEME_DIR/gnome-shell/assets"
-  cp -r "${SRC_DIR}/gnome-shell/assets${ELSE_DARK:-}/"*.svg                     "$THEME_DIR/gnome-shell/assets"
-  cp -r "${SRC_DIR}/gnome-shell/theme$theme/"*.svg                              "$THEME_DIR/gnome-shell/assets"
-  cp -r "${SRC_DIR}/gnome-shell/assets${ACTIVITIES_ASSETS_SUFFIX:-}/activities/activities${icon}.svg" "$THEME_DIR/gnome-shell/assets/activities.svg"
-
-  if [[ "$window" = "round" ]] ; then
-    cp -r "${SRC_DIR}/gnome-shell/assets${ELSE_DARK:-}/buttons-round/"*.svg     "$THEME_DIR/gnome-shell/assets"
-  else
-    cp -r "${SRC_DIR}/gnome-shell/assets${ELSE_DARK:-}/buttons/"*.svg           "$THEME_DIR/gnome-shell/assets"
-  fi
-
-  if [[ "$color" = "-Light" ]] ; then
-    cp -r "${SRC_DIR}/gnome-shell/assets-Dark/activities/activities${icon}.svg" "$THEME_DIR/gnome-shell/assets/activities-white.svg"
-  fi
-
-  if [[ "$opacity" = "solid" ]] ; then
-    if [[ "$window" = "round" ]] ; then
-      if [[ "$outline" = "" ]] ; then
-        cp -r "${SRC_DIR}/gnome-shell/assets${ELSE_DARK:-}/solid-round/"*.svg    "$THEME_DIR/gnome-shell/assets"
-      else
-        cp -r "${SRC_DIR}/gnome-shell/assets${ELSE_DARK:-}/solid-round-borderless/"*.svg "$THEME_DIR/gnome-shell/assets"
-      fi
-    else
-      if [[ "$outline" = "" ]] ; then
-        cp -r "${SRC_DIR}/gnome-shell/assets${ELSE_DARK:-}/solid/"*.svg           "$THEME_DIR/gnome-shell/assets"
-      else
-        cp -r "${SRC_DIR}/gnome-shell/assets${ELSE_DARK:-}/solid-borderless/"*.svg "$THEME_DIR/gnome-shell/assets"
-      fi
-    fi
-  else
-    if [[ "$window" = "round" ]] ; then
-      if [[ "$outline" = "" ]] ; then
-        cp -r "${SRC_DIR}/gnome-shell/assets${ELSE_DARK:-}/default-round/"*.svg   "$THEME_DIR/gnome-shell/assets"
-      else
-        cp -r "${SRC_DIR}/gnome-shell/assets${ELSE_DARK:-}/default-round-borderless/"*.svg "$THEME_DIR/gnome-shell/assets"
-      fi
-    else
-      if [[ "$outline" = "" ]] ; then
-        cp -r "${SRC_DIR}/gnome-shell/assets${ELSE_DARK:-}/default/"*.svg         "$THEME_DIR/gnome-shell/assets"
-      else
-        cp -r "${SRC_DIR}/gnome-shell/assets${ELSE_DARK:-}/default-borderless/"*.svg "$THEME_DIR/gnome-shell/assets"
-      fi
-    fi
-  fi
-
-  cd "$THEME_DIR/gnome-shell"
-  ln -s assets/no-events.svg no-events.svg
-  ln -s assets/process-working.svg process-working.svg
-  ln -s assets/no-notifications.svg no-notifications.svg
 
   mkdir -p                                                                      "$THEME_DIR/gtk-2.0"
   cp -r "$SRC_DIR/gtk-2.0/common/"{apps.rc,hacks.rc,main.rc}                    "$THEME_DIR/gtk-2.0"
@@ -225,18 +165,6 @@ install() {
     cp -r "$SRC_DIR/gtk/4.0/gtk-Dark$size.css"                                  "$THEME_DIR/gtk-4.0/gtk-dark.css"
   fi
 
-  mkdir -p                                                                      "$THEME_DIR/cinnamon"
-  cp -r "$SRC_DIR/cinnamon/common-assets"                                       "$THEME_DIR/cinnamon/assets"
-  cp -r "$SRC_DIR/cinnamon/assets${ELSE_DARK:-}/"*.svg                          "$THEME_DIR/cinnamon/assets"
-
-  if [[ "$accent" == 'true' || "$opacity" == 'solid' ]]; then
-    sassc $SASSC_OPT "$SRC_DIR/cinnamon/cinnamon$color$size.scss"               "$THEME_DIR/cinnamon/cinnamon.css"
-  else
-    cp -r "$SRC_DIR/cinnamon/cinnamon$color$size.css"                           "$THEME_DIR/cinnamon/cinnamon.css"
-  fi
-
-  cp -r "$SRC_DIR/cinnamon/thumbnail$theme$color.png"                           "$THEME_DIR/cinnamon/thumbnail.png"
-  
   mkdir -p                                                                      "$THEME_DIR/xfwm4"
 
   if [[ "$titlebutton" = "square" ]] ; then
@@ -246,27 +174,6 @@ install() {
     cp -r "$SRC_DIR/xfwm4/assets$color/"*.png                                   "$THEME_DIR/xfwm4"
     cp -r "$SRC_DIR/xfwm4/themerc${ELSE_LIGHT:-}"                               "$THEME_DIR/xfwm4/themerc"
   fi
-
-  mkdir -p                                                                      "$THEME_DIR/labwc"
-  cp -r "$SRC_DIR/labwc/assets${ELSE_LIGHT:-}/"*.svg                            "$THEME_DIR/labwc"
-  cp -r "$SRC_DIR/labwc/themerc${ELSE_DARK:-}${ELSE_LIGHT:-}"                   "$THEME_DIR/labwc/themerc"
-
-  mkdir -p                                                                      "$THEME_DIR/metacity-1"
-  cp -r "$SRC_DIR/metacity-1/metacity-theme-2$color.xml"                        "$THEME_DIR/metacity-1/metacity-theme-2.xml"
-
-  if [[ "$window" = "round" ]] ; then
-    cp -r "$SRC_DIR/metacity-1/metacity-theme-3-round.xml"                      "$THEME_DIR/metacity-1/metacity-theme-3.xml"
-    cp -r "$SRC_DIR/metacity-1/assets-round"                                    "$THEME_DIR/metacity-1/assets"
-  else
-    cp -r "$SRC_DIR/metacity-1/metacity-theme-3.xml"                            "$THEME_DIR/metacity-1"
-    cp -r "$SRC_DIR/metacity-1/assets"                                          "$THEME_DIR/metacity-1"
-  fi
-
-  cp -r "$SRC_DIR/metacity-1/thumbnail${ELSE_DARK:-}.png"                       "$THEME_DIR/metacity-1/thumbnail.png"
-  cd "$THEME_DIR/metacity-1" && ln -s metacity-theme-2.xml metacity-theme-1.xml
-
-  mkdir -p                                                                      "$THEME_DIR/plank"
-  cp -r "$SRC_DIR/plank/theme${ELSE_LIGHT:-}/dock.theme"                        "$THEME_DIR/plank"
 }
 
 themes=()
