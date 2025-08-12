@@ -98,7 +98,7 @@ $primary:                               theme(color);
 $entry-highlight:                       lighten($primary, 25%);
 $drop_target_color:                     #FF7043;
 
-$blur_opacity:                          0;
+$blur_opacity:                          0.8;
 
 $background:                           if($variant == 'light', rgba(#FFFFFF, $blur_opacity), rgba(#333333, $blur_opacity));
 $surface:                              if($variant == 'light', rgba(#FFFFFF, $blur_opacity), rgba(#3C3C3C, $blur_opacity));
@@ -156,7 +156,7 @@ $overlay-selected:                      gtkalpha(currentColor, 0.06);
 // Text and derivative colors
 //
 
-$text:                                  on($background);
+$text:                                  $SNC-Text;
 $text-secondary:                        on($background, secondary);
 $text-disabled:                         on($background, disabled);
 $text-secondary-disabled:               on($background, secondary-disabled);

@@ -83,6 +83,75 @@ $Mika-Day: #e67de6;
 $Mika-Sun: #ff96ff;
 
 	// THEMES
+$SNDL-Black_Primary: $Arellyan-Moon;
+$SNDL-Black_Secondary: $Arellyan-Night;
+$SNDL-Black_Tertiary: $Arellyan-Abyss;
+$SNDL-BlackI_Primary: $Arellyan-Sun;
+$SNDL-BlackI_Secondary: $Arellyan-Day;
+$SNDL-BlackI_Tertiary: $Arellyan-Sky;
+
+$SNDL-White_Primary: $Ascellyan-Moon;
+$SNDL-White_Secondary: $Ascellyan-Night;
+$SNDL-White_Tertiary: $Ascellyan-Abyss;
+$SNDL-WhiteI_Primary: $Ascellyan-Sun;
+$SNDL-WhiteI_Secondary: $Ascellyan-Day;
+$SNDL-WhiteI_Tertiary: $Ascellyan-Sky;
+
+$SNDL-Red_Primary: $Wakamo-Moon;
+$SNDL-Red_Secondary: $Wakamo-Night;
+$SNDL-Red_Tertiary: $Wakamo-Abyss;
+$SNDL-RedI_Primary: $Wakamo-Sun;
+$SNDL-RedI_Secondary: $Wakamo-Day;
+$SNDL-RedI_Tertiary: $Wakamo-Sky;
+
+$SNDL-Orange_Primary: $Maple-Moon;
+$SNDL-Orange_Secondary: $Maple-Night;
+$SNDL-Orange_Tertiary: $Maple-Abyss;
+$SNDL-OrangeI_Primary: $Maple-Sun;
+$SNDL-OrangeI_Secondary: $Maple-Day;
+$SNDL-OrangeI_Tertiary: $Maple-Sky;
+
+$SNDL-Yellow_Primary: $Seia-Moon;
+$SNDL-Yellow_Secondary: $Seia-Night;
+$SNDL-Yellow_Tertiary: $Seia-Abyss;
+$SNDL-YellowI_Primary: $Seia-Sun;
+$SNDL-YellowI_Secondary: $Seia-Day;
+$SNDL-YellowI_Tertiary: $Seia-Sky;
+
+$SNDL-Green_Primary: $Otogi-Moon;
+$SNDL-Green_Secondary: $Otogi-Night;
+$SNDL-Green_Tertiary: $Otogi-Abyss;
+$SNDL-GreenI_Primary: $Otogi-Sun;
+$SNDL-GreenI_Secondary: $Otogi-Day;
+$SNDL-GreenI_Tertiary: $Otogi-Sky;
+
+$SNDL-Cyan_Primary: $Glacier-Moon;
+$SNDL-Cyan_Secondary: $Glacier-Night;
+$SNDL-Cyan_Tertiary: $Glacier-Abyss;
+$SNDL-CyanI_Primary: $Glacier-Sun;
+$SNDL-CyanI_Secondary: $Glacier-Day;
+$SNDL-CyanI_Tertiary: $Glacier-Sky;
+
+$SNDL-Blue_Primary: $Marine-Moon;
+$SNDL-Blue_Secondary: $Marine-Night;
+$SNDL-Blue_Tertiary: $Marine-Abyss;
+$SNDL-BlueI_Primary: $Marine-Sun;
+$SNDL-BlueI_Secondary: $Marine-Day;
+$SNDL-BlueI_Tertiary: $Marine-Sky;
+
+$SNDL-Purple_Primary: $Nebula-Moon;
+$SNDL-Purple_Secondary: $Nebula-Night;
+$SNDL-Purple_Tertiary: $Nebula-Abyss;
+$SNDL-PurpleI_Primary: $Nebula-Sun;
+$SNDL-PurpleI_Secondary: $Nebula-Day;
+$SNDL-PurpleI_Tertiary: $Nebula-Sky;
+
+$SNDL-Pink_Primary: $Mika-Moon;
+$SNDL-Pink_Secondary: $Mika-Night;
+$SNDL-Pink_Tertiary: $Mika-Abyss;
+$SNDL-PinkI_Primary: $Mika-Sun;
+$SNDL-PinkI_Secondary: $Mika-Day;
+$SNDL-PinkI_Tertiary: $Mika-Sky;
 @if ($variant == 'light') {
 	$SNDL-Black_Primary: $Arellyan-Sun;
 	$SNDL-Black_Secondary: $Arellyan-Day;
@@ -153,76 +222,6 @@ $Mika-Sun: #ff96ff;
 	$SNDL-PinkI_Primary: $Mika-Moon;
 	$SNDL-PinkI_Secondary: $Mika-Night;
 	$SNDL-PinkI_Tertiary: $Mika-Abyss;
-} @else {
-	$SNDL-Black_Primary: $Arellyan-Moon;
-	$SNDL-Black_Secondary: $Arellyan-Night;
-	$SNDL-Black_Tertiary: $Arellyan-Abyss;
-	$SNDL-BlackI_Primary: $Arellyan-Sun;
-	$SNDL-BlackI_Secondary: $Arellyan-Day;
-	$SNDL-BlackI_Tertiary: $Arellyan-Sky;
-
-	$SNDL-White_Primary: $Ascellyan-Moon;
-	$SNDL-White_Secondary: $Ascellyan-Night;
-	$SNDL-White_Tertiary: $Ascellyan-Abyss;
-	$SNDL-WhiteI_Primary: $Ascellyan-Sun;
-	$SNDL-WhiteI_Secondary: $Ascellyan-Day;
-	$SNDL-WhiteI_Tertiary: $Ascellyan-Sky;
-
-	$SNDL-Red_Primary: $Wakamo-Moon;
-	$SNDL-Red_Secondary: $Wakamo-Night;
-	$SNDL-Red_Tertiary: $Wakamo-Abyss;
-	$SNDL-RedI_Primary: $Wakamo-Sun;
-	$SNDL-RedI_Secondary: $Wakamo-Day;
-	$SNDL-RedI_Tertiary: $Wakamo-Sky;
-
-	$SNDL-Orange_Primary: $Maple-Moon;
-	$SNDL-Orange_Secondary: $Maple-Night;
-	$SNDL-Orange_Tertiary: $Maple-Abyss;
-	$SNDL-OrangeI_Primary: $Maple-Sun;
-	$SNDL-OrangeI_Secondary: $Maple-Day;
-	$SNDL-OrangeI_Tertiary: $Maple-Sky;
-
-	$SNDL-Yellow_Primary: $Seia-Moon;
-	$SNDL-Yellow_Secondary: $Seia-Night;
-	$SNDL-Yellow_Tertiary: $Seia-Abyss;
-	$SNDL-YellowI_Primary: $Seia-Sun;
-	$SNDL-YellowI_Secondary: $Seia-Day;
-	$SNDL-YellowI_Tertiary: $Seia-Sky;
-
-	$SNDL-Green_Primary: $Otogi-Moon;
-	$SNDL-Green_Secondary: $Otogi-Night;
-	$SNDL-Green_Tertiary: $Otogi-Abyss;
-	$SNDL-GreenI_Primary: $Otogi-Sun;
-	$SNDL-GreenI_Secondary: $Otogi-Day;
-	$SNDL-GreenI_Tertiary: $Otogi-Sky;
-
-	$SNDL-Cyan_Primary: $Glacier-Moon;
-	$SNDL-Cyan_Secondary: $Glacier-Night;
-	$SNDL-Cyan_Tertiary: $Glacier-Abyss;
-	$SNDL-CyanI_Primary: $Glacier-Sun;
-	$SNDL-CyanI_Secondary: $Glacier-Day;
-	$SNDL-CyanI_Tertiary: $Glacier-Sky;
-
-	$SNDL-Blue_Primary: $Marine-Moon;
-	$SNDL-Blue_Secondary: $Marine-Night;
-	$SNDL-Blue_Tertiary: $Marine-Abyss;
-	$SNDL-BlueI_Primary: $Marine-Sun;
-	$SNDL-BlueI_Secondary: $Marine-Day;
-	$SNDL-BlueI_Tertiary: $Marine-Sky;
-
-	$SNDL-Purple_Primary: $Nebula-Moon;
-	$SNDL-Purple_Secondary: $Nebula-Night;
-	$SNDL-Purple_Tertiary: $Nebula-Abyss;
-	$SNDL-PurpleI_Primary: $Nebula-Sun;
-	$SNDL-PurpleI_Secondary: $Nebula-Day;
-	$SNDL-PurpleI_Tertiary: $Nebula-Sky;
-
-	$SNDL-Pink_Primary: $Mika-Moon;
-	$SNDL-Pink_Secondary: $Mika-Night;
-	$SNDL-Pink_Tertiary: $Mika-Abyss;
-	$SNDL-PinkI_Primary: $Mika-Sun;
-	$SNDL-PinkI_Secondary: $Mika-Day;
-	$SNDL-PinkI_Tertiary: $Mika-Sky;
 }
 
 	// LIB COLORS
@@ -259,6 +258,28 @@ $SNC-Link_Unavailable: rgba($SNDL-Orange_Primary, 0.95);
 $SNC-Link_Unavailable-Hover: rgba($SNDL-Orange_Secondary, 0.9);
 
 	// THEMES
+$SNC-Brightness_High: 0.2;
+$SNC-Brightness_Medium: 0.6;
+$SNC-Brightness_Low: 0.8;
+
+$SNC-Text: $SNC-Text_White;
+$SNC-Header: $SNC-Header_White;
+
+$SNC-IText: $SNC-Text_Black;
+$SNC-IHeader: $SNC-Header_Black;
+
+$SNC-Solid: black;
+$SNC-SolidI: white;
+
+$SNC-Primary: $SNDL-Black_Primary;
+$SNC-Secondary: $SNDL-Black_Secondary;
+$SNC-Tertiary: $SNDL-Black_Tertiary;
+$SNC-IPrimary: $SNDL-White_Primary;
+$SNC-ISecondary: $SNDL-White_Secondary;
+$SNC-ITertiary: $SNDL-White_Tertiary;
+
+$SNC-Link: rgba($SNDL-Cyan_Primary, 0.8);
+$SNC-Link_Hover: rgba($SNDL-Cyan_Tertiary, 0.8);
 @if ($variant == 'light') {
 	$SNC-Text: $SNC-Text_Black;
 	$SNC-Header: $SNC-Header_Black;
@@ -278,29 +299,6 @@ $SNC-Link_Unavailable-Hover: rgba($SNDL-Orange_Secondary, 0.9);
 
 	$SNC-Link: rgba($SNDL-Blue_Primary, 0.8);
 	$SNC-Link_Hover: rgba($SNDL-Blue_Tertiary, 0.8);
-} @else {
-	$SNC-Brightness_High: 0.2;
-	$SNC-Brightness_Medium: 0.6;
-	$SNC-Brightness_Low: 0.8;
-
-	$SNC-Text: $SNC-Text_White;
-	$SNC-Header: $SNC-Header_White;
-
-	$SNC-IText: $SNC-Text_Black;
-	$SNC-IHeader: $SNC-Header_Black;
-
-	$SNC-Solid: black;
-	$SNC-SolidI: white;
-
-	$SNC-Primary: $SNDL-Black_Primary;
-	$SNC-Secondary: $SNDL-Black_Secondary;
-	$SNC-Tertiary: $SNDL-Black_Tertiary;
-	$SNC-IPrimary: $SNDL-White_Primary;
-	$SNC-ISecondary: $SNDL-White_Secondary;
-	$SNC-ITertiary: $SNDL-White_Tertiary;
-
-	$SNC-Link: rgba($SNDL-Cyan_Primary, 0.8);
-	$SNC-Link_Hover: rgba($SNDL-Cyan_Tertiary, 0.8);
 }
 
 	// SNDL VARIABLES
@@ -316,6 +314,7 @@ $SNDL-UI_Opacity_Solid: 0.8;
 $SNDL-UI_Opacity_Floating: 0.5;
 $SNDL-UI_Opacity_Background: 0.25;
 $SNDL-UI_Opacity_Hint: 0.1;
+
 
 
 
