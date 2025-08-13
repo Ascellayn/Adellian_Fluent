@@ -72,14 +72,14 @@
 }
 
 @function titlebar($state: 'normal') {
-  @if ($variant == 'light' and $topbar == 'light' and $state=='normal' and $blur == 'false') { @return $SNDL-White_Primary, }
-  @if ($variant == 'light' and $topbar == 'light' and $state=='backdrop' and $blur == 'false') { @return #F2F2F2; }
-  @if ($variant == 'light' and $topbar == 'light' and $state=='normal' and $blur == 'true') { @return #FFFFFF; }
-  @if ($variant == 'light' and $topbar == 'light' and $state=='backdrop' and $blur == 'true') { @return #FCFCFC; }
-  @if ($variant == 'light' and $topbar == 'dark' and $state=='normal') { @return #2C2C2C; }
-  @if ($variant == 'light' and $topbar == 'dark' and $state=='backdrop') { @return #3c3c3c; }
-  @if ($variant == 'dark' and $state=='normal') { @return #202020; }
-  @if ($variant == 'dark' and $state=='backdrop') { @return #2C2C2C; }
+  @if ($variant == 'light' and $topbar == 'light' and $state=='normal' and $blur == 'false') { @return $SNDL-White_Primary; }
+  @if ($variant == 'light' and $topbar == 'light' and $state=='backdrop' and $blur == 'false') { @return $SNDL-White_Secondary; }
+  @if ($variant == 'light' and $topbar == 'light' and $state=='normal' and $blur == 'true') { @return $SNDL-White_Primary; }
+  @if ($variant == 'light' and $topbar == 'light' and $state=='backdrop' and $blur == 'true') { @return $SNDL-White_Secondary; }
+  @if ($variant == 'light' and $topbar == 'dark' and $state=='normal') { @return $SNDL-Black_Primary; }
+  @if ($variant == 'light' and $topbar == 'dark' and $state=='backdrop') { @return $SNDL-Black_Secondary; }
+  @if ($variant == 'dark' and $state=='normal') { @return $SNDL-Black_Primary; }
+  @if ($variant == 'dark' and $state=='backdrop') { @return $SNDL-Black_Secondary; }
 }
 
 //
@@ -92,6 +92,7 @@ $drop_target_color:                     $SNDL-Orange_Primary;
 $blur-opacity: $SNDL-UI_Opacity-Hint;
 
 $background:                           if($variant == 'light', rgba($SNDL-White_Primary, $SNDL-UI_Opacity_Solid), rgba($SNDL-Black_Primary, $SNDL-UI_Opacity_Solid));
+$inverted_background:                  if($variant == 'light', rgba($SNDL-Black_Primary, $SNDL-UI_Opacity_Solid), rgba($SNDL-White_Primary, $SNDL-UI_Opacity_Solid));
 $surface:                              if($variant == 'light', rgba($SNDL-White_Primary, $SNDL-UI_Opacity_Solid), rgba($SNDL-Black_Primary, $SNDL-UI_Opacity_Solid));
 $base:                                 if($variant == 'light', rgba($SNDL-White_Primary, $SNDL-UI_Opacity_Solid), rgba($SNDL-Black_Primary, $SNDL-UI_Opacity_Solid)); // semi-surface with 1dp elevation
 $base-alt:                             if($variant == 'light', rgba($SNDL-White_Primary, $SNDL-UI_Opacity_Solid), rgba($SNDL-Black_Primary, $SNDL-UI_Opacity_Solid));
@@ -151,9 +152,9 @@ $text:                                  $SNC-Text;
 $text-secondary:                        $SNC-Header;
 $text-disabled:                         $SNC-Text_Unavailable;
 $text-secondary-disabled:               $SNC-Header_Unavailable;
-$track:                                 $SNC-Text;
+$track:                                 $SNC-IText;
 $track-disabled:                        $SNC-Text_Unavailable;
-$divider:                               on($SNC-ITertiary, divider);
+$divider:                               on(rgba($SNC-Tertiary, 0.5), divider);
 $fill:                                  on($background, fill);
 
 $titlebar-text:                         on($titlebar);
