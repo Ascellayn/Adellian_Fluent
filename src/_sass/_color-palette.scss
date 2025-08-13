@@ -247,9 +247,12 @@ $SNC-Header_Purple: rgba($SNDL-Purple_Secondary, 0.9);
 $SNC-Text_Pink: rgba($SNDL-Pink_Primary, 0.95);
 $SNC-Header_Pink: rgba($SNDL-Pink_Secondary, 0.9);
 
-
-$SNC-Text_Unavailable: $SNC-Text_Red;
-$NC-Header_Unavailable: $SNC-Header_Red;
+$SNC-Text_Unavailable: rgba($SNDL-White_Secondary, 0.25); // NOT COMFORM TO SNDL's SPECIFICATIONS
+$SNC-Header_Unavailable: rgba($SNDL-White_Tertiary, 0.25); // NOT COMFORM TO SNDL's SPECIFICATIONS
+@if ($variant == 'light') {
+	$SNC-Text_Unavailable: rgba($SNDL-Black_Secondary, 0.25); // NOT COMFORM TO SNDL's SPECIFICATIONS
+	$SNC-Header_Unavailable: rgba($SNDL-Black_Tertiary, 0.25); // NOT COMFORM TO SNDL's SPECIFICATIONS
+}
 
 $SNC-Link_Visited: rgba($SNDL-Purple_Primary, 0.95);
 $SNC-Link_Visited-Hover: rgba($SNDL-Purple_Secondary, 0.9);
