@@ -1105,7 +1105,7 @@ viewswitcher button:only-child:not(.suggested-action):not(.destructive-action), 
 
 modelbutton.flat,
 .menuitem.button.flat {
-  min-height: 28px;
+  min-height: 25px;
   padding: 0 8px;
   border-radius: 25px;
   color: rgba(235, 210, 235, 0.95);
@@ -4477,7 +4477,7 @@ popover.emoji-completion arrow {
 }
 
 popover.emoji-completion .emoji-completion-row {
-  min-height: 28px;
+  min-height: 25px;
   padding: 0 12px;
 }
 
@@ -6677,7 +6677,7 @@ MatePanelAppletFrameDBus {
 }
 
 .mate-panel-menu-bar menubar menu > menuitem {
-  min-height: 28px;
+  min-height: 25px;
   padding: 0 6px;
 }
 
@@ -7131,7 +7131,7 @@ MsdOsdWindow.background.osd .progressbar {
 }
 
 .budgie-popover button.flat:not(.image-button) {
-  min-height: 28px;
+  min-height: 25px;
   padding: 0 8px;
   color: rgba(235, 210, 235, 0.95);
   font-weight: normal;
@@ -7316,7 +7316,7 @@ MsdOsdWindow.background.osd .progressbar {
 }
 
 .budgie-popover.places-menu .unmount-button {
-  margin: 4px;
+  margin: 2.5px;
   padding: 0;
 }
 
@@ -8025,12 +8025,16 @@ XfdesktopIconView.view .rubberband {
   background-color: rgba(40, 15, 40, 0.8);
 }
 
-.thunar widget.view {
+.thunar .view {
   background-color: transparent;
 }
 
-.thunar notebook {
-  background-color: transparent;
+.thunar .view > row:selected {
+  background-color: rgba(155, 50, 155, 0.8);
+}
+
+.thunar .view .rubberband {
+  background-color: rgba(155, 50, 155, 0.1);
 }
 
 .thunar paned > scrolledwindow {

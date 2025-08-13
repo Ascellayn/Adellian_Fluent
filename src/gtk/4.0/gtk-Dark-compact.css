@@ -2483,8 +2483,8 @@ popover.menu box.inline-buttons {
 }
 
 popover.menu box.inline-buttons button.image-button.model {
-  min-height: 28px;
-  min-width: 28px;
+  min-height: 25px;
+  min-width: 25px;
   padding: 0;
   border: none;
   outline: none;
@@ -4907,7 +4907,7 @@ popover.emoji-picker emoji:focus, popover.emoji-picker emoji:hover {
 }
 
 emoji-completion-row {
-  min-height: 28px;
+  min-height: 25px;
   padding: 0 8px;
 }
 

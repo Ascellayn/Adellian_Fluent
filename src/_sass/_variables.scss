@@ -8,13 +8,13 @@ $theme-asset-suffix: if($topbar == 'dark', if($variant == 'dark', '-dark', ''), 
 // Sizes
 //
 
-$small-size: if($compact == 'false', 22px, 20px);
-$medium-size: if($compact == 'false', 32px, 28px);
-$large-size: if($compact == 'false', 44px, 36px);
+$small-size: 20px;
+$medium-size: 28px;
+$large-size: 36px;
 
-$space-size: if($compact == 'false', 6px, 4px);
-$bar-size: if($window == 'round', 6px, 3px);
-$menuitem-size: 28px;
+$space-size: 4px;
+$bar-size: 3px;
+$menuitem-size: 25px;
 
 //
 // Radius
