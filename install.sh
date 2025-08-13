@@ -9,8 +9,8 @@ DEST_DIR=
 # For tweaks
 opacity=
 panel=
-window='-round'
-round='-round'
+window=''
+round=''
 blur=
 outline=
 titlebutton=
@@ -54,13 +54,6 @@ OPTIONS:
   -r, --remove
   -u, --uninstall         Uninstall/remove themes or link for libadwaita
 
-  --tweaks                Specify versions for tweaks [solid|float|round|blur|noborder]
-                          solid:    no transparency version
-                          float:    floating panel
-                          round:    rounded windows
-                          blur:     blur version for 'Blur-Me'
-                          noborder: windows and menu with no border
-
   -h, --help              Show help
 EOF
 }
@@ -77,7 +70,7 @@ install() {
   [[ "$color" == '-Light' ]] && local ELSE_LIGHT="$color"
   [[ "$color" == '-Dark' ]] || [[ "$color" == '' ]] && local ACTIVITIES_ASSETS_SUFFIX="-Dark"
 
-  local THEME_DIR="$dest/$name$round$theme$color$size"
+  local THEME_DIR="$dest/$name$round$theme$color"
 
   [[ -d "$THEME_DIR" ]] && rm -rf "${THEME_DIR:?}"
 
@@ -424,9 +417,7 @@ theme_tweaks() {
     install_solid
   fi
 
-  if [[ "$window" = "round" ]] ; then
-    install_round
-  fi
+  install_round
 
   if [[ "$blur" = "true" ]] ; then
     install_blur
@@ -510,7 +501,7 @@ clean_theme() {
     for theme in "${THEME_VARIANTS[@]}"; do
       for color in '-light' '-dark'; do
         for size in "${SIZE_VARIANTS[@]}"; do
-          clean "${dest:-$DEST_DIR}" "${name:-$THEME_NAME}" "$round" "$theme" "$color" "$size"
+          clean "${dest:-$DEST_DIR}" "${name:-$THEME_NAME}" "$round" "$theme" "$color"
         done
       done
     done
@@ -523,7 +514,7 @@ clean_theme() {
   for theme in "${THEME_VARIANTS[@]}"; do
     for color in "${COLOR_VARIANTS[@]}"; do
       for size in "${SIZE_VARIANTS[@]}"; do
-        uninstall "${dest}" "${name:-$THEME_NAME}" "$theme" "$color" "$size"
+        uninstall "${dest}" "${name:-$THEME_NAME}" "$theme" "$color"
       done
     done
   done
@@ -533,7 +524,7 @@ uninstall_theme() {
   for theme in "${themes[@]}"; do
     for color in "${colors[@]}"; do
       for size in "${sizes[@]}"; do
-        uninstall "${dest:-$DEST_DIR}" "${name:-$THEME_NAME}" "$theme" "$color" "$size"
+        uninstall "${dest:-$DEST_DIR}" "${name:-$THEME_NAME}" "$theme" "$color"
       done
     done
   done
@@ -543,7 +534,7 @@ install_theme() {
   for theme in "${themes[@]}"; do
     for color in "${colors[@]}"; do
       for size in "${sizes[@]}"; do
-        install "${dest:-$DEST_DIR}" "${name:-$THEME_NAME}" "$theme" "$color" "$size" "$icon"
+        install "${dest:-$DEST_DIR}" "${name:-$THEME_NAME}" "$theme" "$color" "$size"
       done
     done
   done
@@ -553,7 +544,7 @@ link_theme() {
   for theme in "${themes[@]}"; do
     for color in "${lcolors[@]}"; do
       for size in "${sizes[0]}"; do
-        link_libadwaita "${dest:-$DEST_DIR}" "${name:-$THEME_NAME}" "$theme" "$color" "$size"
+        link_libadwaita "${dest:-$DEST_DIR}" "${name:-$THEME_NAME}" "$theme" "$color"
       done
     done
   done
