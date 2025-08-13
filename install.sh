@@ -70,7 +70,7 @@ install() {
   [[ "$color" == '-Light' ]] && local ELSE_LIGHT="$color"
   [[ "$color" == '-Dark' ]] || [[ "$color" == '' ]] && local ACTIVITIES_ASSETS_SUFFIX="-Dark"
 
-  local THEME_DIR="$dest/$name$round$theme$color"
+  local THEME_DIR="$dest/$name$theme$color"
 
   [[ -d "$THEME_DIR" ]] && rm -rf "${THEME_DIR:?}"
 
