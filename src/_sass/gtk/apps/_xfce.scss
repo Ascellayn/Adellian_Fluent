@@ -104,6 +104,10 @@ XfdesktopIconView.view {
  * Thunar *
  **********/
 .thunar {
+  background-color: $background;
+  widget.view { background-color: transparent; }
+  notebook { background-color: transparent; }
+
   paned > scrolledwindow {
     padding: $space-size / 2;
 
