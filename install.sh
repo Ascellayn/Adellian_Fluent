@@ -32,9 +32,9 @@ fi
 SASSC_OPT="-M -t expanded"
 
 THEME_NAME=Adellian_Fluent
-THEME_VARIANTS=('' '-purple' '-pink' '-red' '-orange' '-yellow' '-green' '-teal' '-grey')
+THEME_VARIANTS=('' '-red' '-orange' '-yellow' '-green' '-cyan' '-blue' '-purple' '-white' '-black')
 COLOR_VARIANTS=('' '-Light' '-Dark')
-SIZE_VARIANTS=('' '-compact')
+SIZE_VARIANTS=('-compact')
 
 usage() {
 cat << EOF
@@ -45,11 +45,9 @@ OPTIONS:
 
   -n, --name NAME         Specify theme name (Default: $THEME_NAME)
 
-  -t, --theme VARIANT     Specify theme color variant(s) [default|purple|pink|red|orange|yellow|green|teal|grey|all] (Default: blue)
+  -t, --theme VARIANT     Specify theme color variant(s) [pink|red|orange|yellow|green|cyan|blue|purple|white|black|all] (Default: pink)
 
   -c, --color VARIANT     Specify color variant(s) [standard|light|dark] (Default: All variants)s)
-
-  -s, --size VARIANT      Specify size variant [standard|compact] (Default: All variants)
 
   -l, --libadwaita        Install link to gtk4 config for theming libadwaita
 
@@ -208,40 +206,44 @@ while [[ "$#" -gt 0 ]]; do
       shift
       for variant in "$@"; do
         case "$variant" in
-          default)
+          pink)
             themes+=("${THEME_VARIANTS[0]}")
             shift
             ;;
-          purple)
+          red)
             themes+=("${THEME_VARIANTS[1]}")
             shift
             ;;
-          pink)
+          orange)
             themes+=("${THEME_VARIANTS[2]}")
             shift
             ;;
-          red)
+          yellow)
             themes+=("${THEME_VARIANTS[3]}")
             shift
             ;;
-          orange)
+          green)
             themes+=("${THEME_VARIANTS[4]}")
             shift
             ;;
-          yellow)
+          cyan)
             themes+=("${THEME_VARIANTS[5]}")
             shift
             ;;
-          green)
+          blue)
             themes+=("${THEME_VARIANTS[6]}")
             shift
             ;;
-          teal)
+          purple)
             themes+=("${THEME_VARIANTS[7]}")
             shift
             ;;
-          grey)
+          white)
             themes+=("${THEME_VARIANTS[8]}")
+            shift
+            ;;
+          black)
+            themes+=("${THEME_VARIANTS[9]}")
             shift
             ;;
           all)
@@ -291,26 +293,7 @@ while [[ "$#" -gt 0 ]]; do
       ;;
     -s|--size)
       shift
-      for variant in "$@"; do
-        case "$variant" in
-          standard)
-            sizes+=("${SIZE_VARIANTS[0]}")
-            shift
-            ;;
-          compact)
-            sizes+=("${SIZE_VARIANTS[1]}")
-            shift
-            ;;
-          -*)
-            break
-            ;;
-          *)
-            echo "ERROR: Unrecognized size variant '${1:-}'."
-            echo "Try '$0 --help' for more information."
-            exit 1
-            ;;
-        esac
-      done
+      sizes+=("${SIZE_VARIANTS[1]}")
       ;;
     -h|--help)
       usage
@@ -391,9 +374,6 @@ activities_style() {
 install_theme_color() {
   if [[ "$theme" != '' ]]; then
     case "$theme" in
-      -purple)
-        theme_color='purple'
-        ;;
       -pink)
         theme_color='pink'
         ;;
@@ -409,11 +389,20 @@ install_theme_color() {
       -green)
         theme_color='green'
         ;;
-      -teal)
-        theme_color='teal'
+      -cyan)
+        theme_color='cyan'
         ;;
-      -grey)
-        theme_color='grey'
+      -blue)
+        theme_color='blue'
+        ;;
+      -purple)
+        theme_color='purple'
+        ;;
+      -white)
+        theme_color='white'
+        ;;
+      -black)
+        theme_color='black'
         ;;
     esac
     sed -i "/\$theme:/s/default/${theme_color}/" ${SRC_DIR}/gnome-shell/sass/_tweaks-temp.scss
