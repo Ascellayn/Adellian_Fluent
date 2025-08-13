@@ -87,7 +87,7 @@
 }
 
 .view {
-  background-color: $base;
+  background-color: $solid;
   color: $text;
 
   &:hover {
@@ -1194,7 +1194,7 @@ combobox {
 toolbar {
   -GtkWidget-window-dragging: true;
   padding: 2px;
-  background-color: $background;
+  background-color: $base;
 
   button { @extend %button-flat; }
 
@@ -1368,6 +1368,7 @@ searchbar > revealer > box {
   border-radius: $window-radius $window-radius 0 0;
   color: $titlebar-text;
   box-shadow: inset 0 -1px $divider;
+  background-color: $surface;
 
   @if $outline == 'true' and $topbar == 'dark' and $variant == 'light' {
     box-shadow: inset 0 -1px $divider, inset 0 1px highlight($titlebar);
@@ -2167,7 +2168,7 @@ $tab-radius: $corner-radius;
   min-height: $small-size;
   min-width: $small-size;
   padding: ($space-size / 2) 12px;
-  border-width: 1px;
+  border-width: 0;
   border-color: transparent;
   border-style: solid;
   outline: none;
@@ -2203,7 +2204,7 @@ notebook {
 
   &, &.frame {
     background-color: $base;
-    border-radius: $corner-radius;
+    border-radius: $menu-radius;
   }
 
   &.frame frame {
@@ -2227,16 +2228,20 @@ notebook {
     background-color: $background;
     background-clip: border-box;
 
+    tabs {
+      > tab {
+        border-radius: $corner-radius;
+      }
+    }
+
     &.top {
       border-bottom-style: solid;
-      border-radius: $corner-radius $corner-radius 0 0;
 
       > tabs {
-        margin-bottom: -1px;
+        margin-bottom: 1px;
         margin-top: $space-size / 2;
 
         > tab {
-          border-radius: $tab-radius $tab-radius 0 0;
           border-bottom: none;
         }
       }
@@ -2244,14 +2249,12 @@ notebook {
 
     &.bottom {
       border-top-style: solid;
-      border-radius: 0 0 $corner-radius $corner-radius;
 
       > tabs {
-        margin-top: -1px;
+        margin-top: 1px;
         margin-bottom: $space-size / 2;
 
         > tab {
-          border-radius: 0 0 $tab-radius $tab-radius;
           border-top: none;
         }
       }
@@ -2259,14 +2262,12 @@ notebook {
 
     &.left {
       border-right-style: solid;
-      border-radius: $corner-radius 0 0 $corner-radius;
 
       > tabs {
         margin-left: $space-size / 2;
-        margin-right: -1px;
+        margin-right: 1px;
 
         > tab {
-          border-radius: $tab-radius 0 0 $tab-radius;
           border-right: none;
         }
       }
@@ -2274,14 +2275,12 @@ notebook {
 
     &.right {
       border-left-style: solid;
-      border-radius: 0 $corner-radius $corner-radius 0;
 
       > tabs {
-        margin-left: -1px;
+        margin-left: 1px;
         margin-right: $space-size / 2;
 
         > tab {
-          border-radius: 0 $tab-radius $tab-radius 0;
           border-left: none;
         }
       }
@@ -2574,11 +2573,11 @@ switch {
 
   &:checked {
     box-shadow: none;
-    background-color: $primary;
+    background-color: $primary_hard;
 
     &:hover {
       box-shadow: none;
-      background-color: lighten($primary, 5%);
+      background-color: lighten($primary_harder, 5%);
     }
   }
 
@@ -2664,8 +2663,8 @@ radio {
   }
 
   &:checked, &:indeterminate {
-    color: $primary;
-    background-image: image(on($primary));
+    color: $primary_harder;
+    background-image: transparent;
     background-size: 12px 12px;
     background-position: center center;
     background-repeat: no-repeat;
@@ -2673,7 +2672,7 @@ radio {
     transition: background-image 0;
 
     &:hover {
-      color: darken($primary, 10%);
+      color: darken($primary_harder, 10%);
     }
 
     &:disabled {
@@ -3474,7 +3473,7 @@ filechooser {
 
   #pathbarbox {
     border-bottom: 1px solid $divider;
-    background-color: $background;
+    background-color: $base;
 
     > stack > box > button { // The new folder button
       @extend %button-flat;

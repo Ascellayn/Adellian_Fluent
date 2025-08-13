@@ -88,24 +88,25 @@
 // Basic colors
 //
 $primary:                               rgba(theme(color), $SNDL-UI_Opacity_Hint);
+$primary_hard:                        rgba(theme(color), $SNDL-UI_Opacity_Floating);
+$primary_harder:                        rgba(theme(color), $SNDL-UI_Opacity_Solid);
 $entry-highlight:                       rgba(theme(color), $SNDL-UI_Opacity_Floating);
 $drop_target_color:                     $SNDL-Orange_Primary;
 
 $blur-opacity: $SNDL-UI_Opacity-Hint;
 
+$solid:                           if($variant == 'light', rgba($SNDL-White_Primary, 1), rgba($SNDL-Black_Primary, 1));
 $background:                           if($variant == 'light', rgba($SNDL-White_Primary, $SNDL-UI_Opacity_Solid), rgba($SNDL-Black_Primary, $SNDL-UI_Opacity_Solid));
-$surface:                              if($variant == 'light', rgba($SNDL-White_Primary, $SNDL-UI_Opacity_Solid), rgba($SNDL-Black_Primary, $SNDL-UI_Opacity_Solid));
-$base:                                 if($variant == 'light', rgba($SNDL-White_Primary, $SNDL-UI_Opacity_Solid), rgba($SNDL-Black_Primary, $SNDL-UI_Opacity_Solid)); // semi-surface with 1dp elevation
-$base-alt:                             rgba(0,0,0, 0);
+$surface:                              if($variant == 'light', rgba($SNDL-White_Primary, $SNDL-UI_Opacity_Floating), rgba($SNDL-Black_Primary, $SNDL-UI_Opacity_Floating));
+$base:                                 if($variant == 'light', rgba($SNDL-White_Primary, $SNDL-UI_Opacity_Hint), rgba($SNDL-Black_Primary, $SNDL-UI_Opacity_Hint)); // semi-surface with 1dp elevation
+$base-alt:                             $base;
 
 $scrim:                                 rgba(cyan, 0.6);
 $scrim-alt:                             rgba(cyan, 0.3);
 $scrim-inverse:                         rgba(purple, 0.1);
 
-$menu:                                  $surface;
+$menu:                                  if($variant == 'light', rgba($SNDL-White_Primary, 1), rgba($SNDL-Black_Primary, 1));
 $tooltip:                               rgba(#363636, 0.9);
-$titlebar:                              titlebar(normal);
-$titlebar-backdrop:                     titlebar(backdrop);
 $titlebar:                              rgba($SNC-Primary, $SNDL-UI_Opacity_Hint);
 $titlebar-backdrop:                     $titlebar; // Inactive Color, not sure why it's called backdrop
 
