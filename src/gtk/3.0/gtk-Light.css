@@ -178,7 +178,7 @@ headerbar label:disabled, tab label:disabled, button label:disabled {
 
 label.osd {
   border-radius: 25px;
-  background-color: rgba(54, 54, 54, 0.9);
+  background-color: rgba(70, 30, 70, 0.8);
   color: #fffaff;
 }
 
@@ -4080,12 +4080,12 @@ tooltip {
 }
 
 tooltip.background {
-  background-color: rgba(54, 54, 54, 0.9);
+  background-color: rgba(70, 30, 70, 0.8);
   color: #fffaff;
 }
 
 tooltip.background.csd {
-  background-color: rgba(54, 54, 54, 0.9);
+  background-color: rgba(70, 30, 70, 0.8);
   color: #fffaff;
   border-radius: 25px;
 }
@@ -6255,7 +6255,7 @@ window.background.chromium > textview.view, window.background.chromium textview 
 }
 
 tooltip.background.chromium {
-  background-color: #363636;
+  background-color: #461e46;
 }
 
 /***********
@@ -7064,7 +7064,7 @@ na-tray-applet {
 /* multimedia OSD */
 MsdOsdWindow.background.osd {
   border-radius: 25px;
-  background-color: rgba(54, 54, 54, 0.9);
+  background-color: rgba(70, 30, 70, 0.8);
   color: #fffaff;
 }
 

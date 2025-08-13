@@ -101,12 +101,12 @@ $surface:                              if($variant == 'light', rgba($SNDL-White_
 $base:                                 if($variant == 'light', rgba($SNDL-White_Primary, $SNDL-UI_Opacity_Hint), rgba($SNDL-Black_Primary, $SNDL-UI_Opacity_Hint)); // semi-surface with 1dp elevation
 $base-alt:                             $base;
 
-$scrim:                                 rgba(cyan, 0.6);
+$scrim:                                 rgba(cyan, 0.6); // idk waht these are
 $scrim-alt:                             rgba(cyan, 0.3);
 $scrim-inverse:                         rgba(purple, 0.1);
 
 $menu:                                  if($variant == 'light', rgba($SNDL-White_Primary, 1), rgba($SNDL-Black_Primary, 1));
-$tooltip:                               rgba(#363636, 0.9);
+$tooltip:                               rgba($SNDL-Black_Secondary, $SNDL-UI_Opacity_Solid);
 $titlebar:                              rgba($SNC-Primary, $SNDL-UI_Opacity_Hint);
 $titlebar-backdrop:                     $titlebar; // Inactive Color, not sure why it's called backdrop
 
