@@ -9,8 +9,8 @@ DEST_DIR=
 # For tweaks
 opacity=
 panel=
-window=''
-round=''
+window='-round'
+round='-round'
 blur=
 outline=
 titlebutton=
