@@ -26,27 +26,29 @@
   @if ($color == 'light') { $color: $SNDL-White_Primary; }
   @if ($color == 'dark') { $color: $SNDL-Black_Primary; }
 
+  //@return $color;
+
   // Calculate color brightness according to https://www.w3.org/TR/AERT/#color-contrast
   $brightness: (red($color) * 299 + green($color) * 587 + blue($color) * 114) / 1000;
 
   @if ($brightness >= 156) {
-    @if ($state == 'primary') { @return rgba(black, 0.87); }
-    @if ($state == 'secondary') { @return rgba(black, 0.6); }
-    @if ($state == 'disabled') { @return rgba(black, 0.38); }
-    @if ($state == 'secondary-disabled') { @return rgba(black, 0.26); }
-    @if ($state == 'track') { @return rgba(black, 0.26); }
-    @if ($state == 'track-disabled') { @return rgba(black, 0.12); }
-    @if ($state == 'divider') { @return rgba(black, 0.12); }
-    @if ($state == 'fill') { @return rgba(black, 0.04); }
+    @if ($state == 'primary') { @return rgba($SNDL-Black_Primary, 0.87); }
+    @if ($state == 'secondary') { @return rgba($SNDL-Black_Primary, 0.6); }
+    @if ($state == 'disabled') { @return rgba($SNDL-Black_Primary, 0.38); }
+    @if ($state == 'secondary-disabled') { @return rgba($SNDL-Black_Primary, 0.26); }
+    @if ($state == 'track') { @return rgba($SNDL-Black_Primary, 0.26); }
+    @if ($state == 'track-disabled') { @return rgba($SNDL-Black_Primary, 0.12); }
+    @if ($state == 'divider') { @return rgba($SNDL-Black_Primary, 0.12); }
+    @if ($state == 'fill') { @return rgba($SNDL-Black_Primary, 0.04); }
   } @else {
-    @if ($state == 'primary') { @return white; }
-    @if ($state == 'secondary') { @return rgba(white, 0.7); }
-    @if ($state == 'disabled') { @return rgba(white, 0.5); }
-    @if ($state == 'secondary-disabled') { @return rgba(white, 0.3); }
-    @if ($state == 'track') { @return rgba(white, 0.3); }
-    @if ($state == 'track-disabled') { @return rgba(white, 0.12); }
-    @if ($state == 'divider') { @return rgba(white, 0.12); }
-    @if ($state == 'fill') { @return rgba(white, 0.04); }
+    @if ($state == 'primary') { @return $SNDL-White_Primary; }
+    @if ($state == 'secondary') { @return rgba($SNDL-White_Primary, 0.7); }
+    @if ($state == 'disabled') { @return rgba($SNDL-White_Primary, 0.5); }
+    @if ($state == 'secondary-disabled') { @return rgba($SNDL-White_Primary, 0.3); }
+    @if ($state == 'track') { @return rgba($SNDL-White_Primary, 0.3); }
+    @if ($state == 'track-disabled') { @return rgba($SNDL-White_Primary, 0.12); }
+    @if ($state == 'divider') { @return rgba($SNDL-White_Primary, 0.12); }
+    @if ($state == 'fill') { @return rgba($SNDL-White_Primary, 0.04); }
   }
 }
 
@@ -76,38 +78,37 @@
   @if ($variant == 'light' and $topbar == 'light' and $state=='backdrop' and $blur == 'false') { @return $SNDL-White_Secondary; }
   @if ($variant == 'light' and $topbar == 'light' and $state=='normal' and $blur == 'true') { @return $SNDL-White_Primary; }
   @if ($variant == 'light' and $topbar == 'light' and $state=='backdrop' and $blur == 'true') { @return $SNDL-White_Secondary; }
-  @if ($variant == 'light' and $topbar == 'dark' and $state=='normal') { @return $SNDL-Black_Primary; }
-  @if ($variant == 'light' and $topbar == 'dark' and $state=='backdrop') { @return $SNDL-Black_Secondary; }
-  @if ($variant == 'dark' and $state=='normal') { @return $SNDL-Black_Primary; }
-  @if ($variant == 'dark' and $state=='backdrop') { @return $SNDL-Black_Secondary; }
+  @if ($variant == 'light' and $topbar == 'dark' and $state=='normal') { @return $SNDL-Red_Primary; }
+  @if ($variant == 'light' and $topbar == 'dark' and $state=='backdrop') { @return $SNDL-Red_Secondary; }
+  @if ($variant == 'dark' and $state=='normal') { @return $SNDL-Red_Primary; }
+  @if ($variant == 'dark' and $state=='backdrop') { @return $SNDL-Red_Secondary; }
 }
 
 //
 // Basic colors
 //
-$primary:                               theme(color);
-$entry-highlight:                       lighten($primary, 25%);
+$primary:                               rgba(theme(color), $SNDL-UI_Opacity_Hint);
+$entry-highlight:                       rgba(theme(color), $SNDL-UI_Opacity_Floating);
 $drop_target_color:                     $SNDL-Orange_Primary;
 
 $blur-opacity: $SNDL-UI_Opacity-Hint;
 
 $background:                           if($variant == 'light', rgba($SNDL-White_Primary, $SNDL-UI_Opacity_Solid), rgba($SNDL-Black_Primary, $SNDL-UI_Opacity_Solid));
-$inverted_background:                  if($variant == 'light', rgba($SNDL-Black_Primary, $SNDL-UI_Opacity_Solid), rgba($SNDL-White_Primary, $SNDL-UI_Opacity_Solid));
 $surface:                              if($variant == 'light', rgba($SNDL-White_Primary, $SNDL-UI_Opacity_Solid), rgba($SNDL-Black_Primary, $SNDL-UI_Opacity_Solid));
 $base:                                 if($variant == 'light', rgba($SNDL-White_Primary, $SNDL-UI_Opacity_Solid), rgba($SNDL-Black_Primary, $SNDL-UI_Opacity_Solid)); // semi-surface with 1dp elevation
-$base-alt:                             if($variant == 'light', rgba($SNDL-White_Primary, $SNDL-UI_Opacity_Solid), rgba($SNDL-Black_Primary, $SNDL-UI_Opacity_Solid));
-$titlebar:                             rgba(titlebar(normal), $SNDL-UI_Opacity_Solid);
-$titlebar-backdrop:                    rgba(titlebar(backdrop), $SNDL-UI_Opacity_Solid);
-$panel:                                if($topbar == 'light', rgba($SNDL-White_Primary, $SNDL-UI_Opacity_Solid), rgba($SNDL-Black_Primary, $SNDL-UI_Opacity_Solid));
+$base-alt:                             rgba(0,0,0, 0);
 
-$scrim:                                 rgba(black, 0.6);
-$scrim-alt:                             rgba(black, 0.3);
-$scrim-inverse:                         rgba(white, 0.1);
+$scrim:                                 rgba(cyan, 0.6);
+$scrim-alt:                             rgba(cyan, 0.3);
+$scrim-inverse:                         rgba(purple, 0.1);
 
 $menu:                                  $surface;
 $tooltip:                               rgba(#363636, 0.9);
 $titlebar:                              titlebar(normal);
 $titlebar-backdrop:                     titlebar(backdrop);
+$titlebar:                              rgba($SNC-Primary, $SNDL-UI_Opacity_Hint);
+$titlebar-backdrop:                     $titlebar; // Inactive Color, not sure why it's called backdrop
+
 $panel:                                 if($topbar == 'light', rgba($SNDL-White_Primary, $SNDL-UI_Opacity_Solid), rgba($SNDL-Black_Primary, $SNDL-UI_Opacity_Solid));
 $panel-solid:                           if($topbar == 'light', $SNDL-White_Primary, $SNDL-Black_Primary); // for Unity panel which doesn't allow translucent colors
 
@@ -122,7 +123,7 @@ $warning:                               $SNDL-Yellow_Primary;
 $error:                                 $SNDL-Red_Primary;
 $success:                               $SNDL-Green_Primary;
 
-$suggested:                             $primary;
+$suggested:                             rgba(theme(color), $SNDL-UI_Opacity_Floating);
 $destructive:                           $error;
 
 $frame:                                 rgba($SNDL-Black_Tertiary, $SNDL-UI_Opacity_Hint); // instead of shadows
@@ -155,16 +156,16 @@ $text-secondary-disabled:               $SNC-Header_Unavailable;
 $track:                                 $SNC-IText;
 $track-disabled:                        $SNC-Text_Unavailable;
 $divider:                               on(rgba($SNC-Tertiary, 0.5), divider);
-$fill:                                  on($background, fill);
+$fill:                                  ($background, fill);
 
-$titlebar-text:                         on($titlebar);
-$titlebar-text-secondary:               on($titlebar, secondary);
-$titlebar-text-disabled:                on($titlebar, disabled);
-$titlebar-text-secondary-disabled:      on($titlebar, secondary-disabled);
-$titlebar-track:                        on($titlebar, track);
-$titlebar-track-disabled:               on($titlebar, track-disabled);
-$titlebar-divider:                      on($titlebar, divider);
-$titlebar-fill:                         on($titlebar, fill);
+$titlebar-text:                         $text;
+$titlebar-text-secondary:               $text-secondary;
+$titlebar-text-disabled:                $text-disabled;
+$titlebar-text-secondary-disabled:      $text-secondary-disabled;
+$titlebar-track:                        $track;
+$titlebar-track-disabled:               $track-disabled;
+$titlebar-divider:                      $divider;
+$titlebar-fill:                         $fill;
 
 // workaround for GTK3 @placeholder_text_color which doesn't allow translucent colors
 $placeholder_text_color:                mix($SNC-Text, $base, percentage(0.6));
