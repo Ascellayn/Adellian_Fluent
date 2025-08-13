@@ -1,99 +1,16 @@
-# Fluent theme
+# Adellian's Fluent Fork GTK Theme
+Adellian Fluent is a fork of vinceliuice's [Fluent GTK Theme](https://github.com/vinceliuice/Fluent-gtk-theme) modified to adhere to The Sirio Network's Design Language (SNDL).  
+This theme is designed exclusively for Adellian's "Hyprllian" Branch, you could use this GTK Theme outside of Hyprland but we STRONGLY do NOT recommend doing so.  
 
-Fluent is a Fluent design theme for GNOME/GTK based desktop environments. See also [Fluent Icon theme](https://github.com/vinceliuice/Fluent-icon-theme).
+Installation is handled automatically by Adellian's installation scripts. You're on your own if you wish to use this outside of Adellian.
 
-### Normal version
-![screenshot01](https://github.com/vinceliuice/Fluent-gtk-theme/blob/Images/screenshot01.png?raw=true)
+## Screenshots
+![Hyprllian Light](https://github.com/vinceliuice/Fluent-gtk-theme/blob/master/Screenshots/HYPRLLIAN_LIGHT.png?raw=true)
+![Hyprllian Dark](https://github.com/vinceliuice/Fluent-gtk-theme/blob/master/Screenshots/HYPRLLIAN_DARK.png?raw=true)
 
-### Blur version (Only for Gnome-Shell desktop)
-![screenshot-blur](https://github.com/vinceliuice/Fluent-gtk-theme/blob/Images/screenshot-blur.jpg?raw=true)
 
-#### Blur version requirement
+<br>
 
-- [Blur My Shell](https://github.com/aunetx/blur-my-shell)
 
-## Requirements
-
-- GTK `>=3.20`
-- `gnome-themes-extra` (or `gnome-themes-standard`)
-- Murrine engine — The package name depends on the distro.
-  - `gtk-engine-murrine` on Arch Linux
-  - `gtk-murrine-engine` on Fedora
-  - `gtk2-engine-murrine` on openSUSE
-  - `gtk2-engines-murrine` on Debian, Ubuntu, etc.
-- `sassc` — build dependency
-
-## Installation
-
-### Manual Installation
-
-Run the following commands in the terminal:
-
-```sh
-./install.sh
-```
-
-> Tip: `./install.sh` allows the following options:
-
-```
--d, --dest DIR          Specify destination directory (Default: /usr/share/themes)
-
--n, --name NAME         Specify theme name (Default: Fluent)
-
--t, --theme VARIANT     Specify theme color variant(s) [default|purple|pink|red|orange|yellow|green|grey|teal|all] (Default: blue)
-
--c, --color VARIANT     Specify color variant(s) [standard|light|dark] (Default: All variants)
-
--s, --size VARIANT      Specify size variant [standard|compact] (Default: All variants)
-
--i, --icon VARIANT      Specify icon variant(s) for shell panel
-                        [default|apple|simple|gnome|ubuntu|arch|manjaro|fedora|debian|void|opensuse|popos|mxlinux|zorin|endeavouros|tux|nixos]
-                        (Default: Windows icon)
-
--l, --libadwaita        Install link to gtk4 config for theming libadwaita
-
--u, --uninstall         Uninstall themes or link for libadwaita
-
---tweaks                Specify versions for tweaks [solid|float|round|blur|noborder|square]
-                        solid:    no transparency version
-                        float:    floating panel
-                        round:    rounded windows
-                        blur:     blur version for 'Blur-Me'
-                        noborder: windows and menu with no border
-                        square:   square windows button
-
--h, --help              Show help
-```
-
-![theme-view](https://github.com/vinceliuice/Fluent-gtk-theme/blob/Images/theme-view.png?raw=true)
-
-> For more information, run: `./install.sh --help`
-
-### Flatpak Installation
-
-Automatically install your host GTK+ theme as a Flatpak.
-
-- [pakitheme](https://github.com/refi64/pakitheme)
-
-### Wallpaper
-[Install Wallpapers](https://github.com/vinceliuice/Fluent-gtk-theme/tree/Wallpaper)
-
-#### Preview
-![wallpaper](https://github.com/vinceliuice/Fluent-gtk-theme/blob/Images/wallpaper-view.png?raw=true)
-
-### Firefox theme
-[Install Firefox theme](src/firefox)
-
-#### Preview
-![firefox-view](https://github.com/vinceliuice/Fluent-gtk-theme/blob/Images/firefox-view.png?raw=true)
-
-### Fix for Dash to panel
-
-Just install the compact version
-
-```sh
-./install.sh --tweaks compact
-```
-
-## Gtk theme widgets
-![screenshot02](https://github.com/vinceliuice/Fluent-gtk-theme/blob/Images/screenshot02.png?raw=true)
+#### We recommend only using dark mode for any non-hyprland install due to transparency if your compositor does not blur behind windows.
+![Hyprllian Light](https://github.com/vinceliuice/Fluent-gtk-theme/blob/master/Screenshots/XFCE_DARK.png?raw=true)
