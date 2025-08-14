@@ -1558,6 +1558,14 @@ searchbar > revealer > box {
   }
 }
 
+headerbar,
+headerbar:backdrop,
+.titlebar,
+.titlebar:backdrop {
+  background-color: $background;
+  color: $text;
+}
+
 headerbar {
   // The sizing factor needs to be defined in the headerbar node for the case of split headerbars
   min-height: $large-size;

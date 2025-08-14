@@ -1729,6 +1729,19 @@ headerbar button.titlebutton:not(.suggested-action):not(.destructive-action) {
   border-radius: 0;
 }
 
+headerbar,
+headerbar:backdrop,
+.titlebar,
+.titlebar:backdrop {
+  background-color: rgba(255, 250, 255, 0.8);
+  color: rgba(80, 35, 80, 0.95);
+}
+
+headerbar .title,
+headerbar .title:backdrop {
+  color: rgba(80, 35, 80, 0.95);
+}
+
 headerbar {
   min-height: 36px;
   padding: 0 4px;
